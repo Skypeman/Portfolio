@@ -1,0 +1,75 @@
+Практика:
+
+SELECT group.name AS 'Группа', AVG(rating) AS 'Средний рейтинг'
+FROM student, `group`
+WHERE student.group = group.id
+GROUP BY 1
+
+Средний рейтинг в каждой группе
+-------------------------------------------------------------------------------------
+SELECT sex.name AS 'Пол', COUNT(*) AS 'Колличество'
+FROM student, sex
+WHERE student.sex = sex.id
+GROUP BY 1
+
+сколько юношей и сколько девушек
+--------------------------------------------------------------------------------------
+SELECT student.FIO AS 'ФИО', group.name AS 'Группа', faculty.name AS 'Факультет' 
+FROM student, `group`, faculty
+WHERE student.group = group.id AND group.faculty = faculty.id
+--------------------------------------------------------------------------------------
+SELECT faculty.dean AS 'Помещик', COUNT(*) AS 'Колличество'
+FROM student, faculty, `group`
+WHERE student.group = group.id and group.faculty = faculty.id
+GROUP BY 1
+
+
+
+
+
+Лаб.2:
+- Получить список жителей острова, родившихся в каком-либо году. Каком-либо – выбирается Вами:
+SELECT * FROM `people` WHERE birth_date BETWEEN '1718-01-01' AND '1719-01-01'
+
+- Определить сколько мужчин и женщин проживает на острове в настоящее время:
+SELECT gender.name AS 'Пол', COUNT(*) AS 'Колличество'
+FROM people, gender
+WHERE people.pol = gender.id AND death_date IS NULL
+GROUP BY 1
+
+- Определите родителей и детей какого-либо жителя острова. Указать сведения об этих людях:
+SELECT t1.sn AS 'Фамилия', t1.name AS 'Имя', t2.sn AS 'Фамилия отца', t2.name AS 'Имя отца', t3.sn AS 'Фамилия матери', t3.name AS 'Имя матери', t4.* 
+FROM (SELECT people.second_name AS sn, people.name AS name, people.id AS id, people.Otec AS otec, people.Mat AS mat 
+	FROM people WHERE people.id = 6) t1 
+LEFT JOIN (SELECT people.second_name AS sn, people.name AS name, people.id AS id FROM people) t2 ON t2.id = t1.otec 
+LEFT JOIN (SELECT people.second_name AS sn, people.name AS name, people.id AS id FROM people) t3 ON t3.id = t1.mat
+JOIN (SELECT name AS 'Дети' FROM people WHERE otec = 6 OR mat = 6) AS t4
+
+
+- Получите список всех улиц, расположенных на острове: 
+SELECT DISTINCT name FROM streets
+
+- Определите, сколько домов находится на каждой улице острова:
+SELECT streets.name AS 'Улица', Count(*) AS 'Домов' FROM `addresses`, `streets`
+WHERE addresses.street = streets.id
+GROUP BY 1
+ORDER BY 'Улица'
+
+-  Определите название улицы, на которой проживает больше всего островитян:
+SELECT streets.name AS 'Улица', COUNT(*) AS 'Жителей'
+FROM streets, house_residents, house, addresses
+WHERE house_residents.dom = house.id AND addresses.dom = house.id AND Addresses.street = streets.id
+GROUP BY 1
+
+-  Определите количество контрактов, заключенных на каждый вид деятельности в
+какой-либо период времени:
+SELECT activities.name AS 'Деятельность', COUNT(*) AS 'Контрактов' 
+FROM `contract`, `entrepreneurs`, `activities`
+WHERE contract.Predprinimatel = entrepreneurs.id 
+	AND entrepreneurs.Deyatelnost = activities.id 
+		AND (contract.begin_date > '1000-01-02' and contract.end_date < '3000-01-02' )
+GROUP BY 1
+
+- Получите список членов кооперативов, которые занимаются рыбной ловле:
+SELECT name AS 'Рыбной ловлей занимаются кооперативы:' FROM cooperative 
+WHERE id = (SELECT Kooperativ FROM coop_activities WHERE Deyatelnost = 1) 
