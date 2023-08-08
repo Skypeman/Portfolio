@@ -1,24 +1,24 @@
-Ïğàêòèêà:
+ĞŸÑ€Ğ°ĞºÑ‚Ğ¸ĞºĞ°:
 
-SELECT group.name AS 'Ãğóïïà', AVG(rating) AS 'Ñğåäíèé ğåéòèíã'
+SELECT group.name AS 'ÃƒÃ°Ã³Ã¯Ã¯Ã ', AVG(rating) AS 'Ã‘Ã°Ã¥Ã¤Ã­Ã¨Ã© Ã°Ã¥Ã©Ã²Ã¨Ã­Ã£'
 FROM student, `group`
 WHERE student.group = group.id
 GROUP BY 1
 
-Ñğåäíèé ğåéòèíã â êàæäîé ãğóïïå
+Ã‘Ã°Ã¥Ã¤Ã­Ã¨Ã© Ã°Ã¥Ã©Ã²Ã¨Ã­Ã£ Ã¢ ÃªÃ Ã¦Ã¤Ã®Ã© Ã£Ã°Ã³Ã¯Ã¯Ã¥
 -------------------------------------------------------------------------------------
-SELECT sex.name AS 'Ïîë', COUNT(*) AS 'Êîëëè÷åñòâî'
+SELECT sex.name AS 'ÃÃ®Ã«', COUNT(*) AS 'ÃŠÃ®Ã«Ã«Ã¨Ã·Ã¥Ã±Ã²Ã¢Ã®'
 FROM student, sex
 WHERE student.sex = sex.id
 GROUP BY 1
 
-ñêîëüêî şíîøåé è ñêîëüêî äåâóøåê
+Ã±ÃªÃ®Ã«Ã¼ÃªÃ® Ã¾Ã­Ã®Ã¸Ã¥Ã© Ã¨ Ã±ÃªÃ®Ã«Ã¼ÃªÃ® Ã¤Ã¥Ã¢Ã³Ã¸Ã¥Ãª
 --------------------------------------------------------------------------------------
-SELECT student.FIO AS 'ÔÈÎ', group.name AS 'Ãğóïïà', faculty.name AS 'Ôàêóëüòåò' 
+SELECT student.FIO AS 'Ã”ÃˆÃ', group.name AS 'ÃƒÃ°Ã³Ã¯Ã¯Ã ', faculty.name AS 'Ã”Ã ÃªÃ³Ã«Ã¼Ã²Ã¥Ã²' 
 FROM student, `group`, faculty
 WHERE student.group = group.id AND group.faculty = faculty.id
 --------------------------------------------------------------------------------------
-SELECT faculty.dean AS 'Ïîìåùèê', COUNT(*) AS 'Êîëëè÷åñòâî'
+SELECT faculty.dean AS 'ÃÃ®Ã¬Ã¥Ã¹Ã¨Ãª', COUNT(*) AS 'ÃŠÃ®Ã«Ã«Ã¨Ã·Ã¥Ã±Ã²Ã¢Ã®'
 FROM student, faculty, `group`
 WHERE student.group = group.id and group.faculty = faculty.id
 GROUP BY 1
@@ -27,49 +27,49 @@ GROUP BY 1
 
 
 
-Ëàá.2:
-- Ïîëó÷èòü ñïèñîê æèòåëåé îñòğîâà, ğîäèâøèõñÿ â êàêîì-ëèáî ãîäó. Êàêîì-ëèáî – âûáèğàåòñÿ Âàìè:
+Ã‹Ã Ã¡.2:
+- ÃÃ®Ã«Ã³Ã·Ã¨Ã²Ã¼ Ã±Ã¯Ã¨Ã±Ã®Ãª Ã¦Ã¨Ã²Ã¥Ã«Ã¥Ã© Ã®Ã±Ã²Ã°Ã®Ã¢Ã , Ã°Ã®Ã¤Ã¨Ã¢Ã¸Ã¨ÃµÃ±Ã¿ Ã¢ ÃªÃ ÃªÃ®Ã¬-Ã«Ã¨Ã¡Ã® Ã£Ã®Ã¤Ã³. ÃŠÃ ÃªÃ®Ã¬-Ã«Ã¨Ã¡Ã® â€“ Ã¢Ã»Ã¡Ã¨Ã°Ã Ã¥Ã²Ã±Ã¿ Ã‚Ã Ã¬Ã¨:
 SELECT * FROM `people` WHERE birth_date BETWEEN '1718-01-01' AND '1719-01-01'
 
-- Îïğåäåëèòü ñêîëüêî ìóæ÷èí è æåíùèí ïğîæèâàåò íà îñòğîâå â íàñòîÿùåå âğåìÿ:
-SELECT gender.name AS 'Ïîë', COUNT(*) AS 'Êîëëè÷åñòâî'
+- ÃÃ¯Ã°Ã¥Ã¤Ã¥Ã«Ã¨Ã²Ã¼ Ã±ÃªÃ®Ã«Ã¼ÃªÃ® Ã¬Ã³Ã¦Ã·Ã¨Ã­ Ã¨ Ã¦Ã¥Ã­Ã¹Ã¨Ã­ Ã¯Ã°Ã®Ã¦Ã¨Ã¢Ã Ã¥Ã² Ã­Ã  Ã®Ã±Ã²Ã°Ã®Ã¢Ã¥ Ã¢ Ã­Ã Ã±Ã²Ã®Ã¿Ã¹Ã¥Ã¥ Ã¢Ã°Ã¥Ã¬Ã¿:
+SELECT gender.name AS 'ÃÃ®Ã«', COUNT(*) AS 'ÃŠÃ®Ã«Ã«Ã¨Ã·Ã¥Ã±Ã²Ã¢Ã®'
 FROM people, gender
 WHERE people.pol = gender.id AND death_date IS NULL
 GROUP BY 1
 
-- Îïğåäåëèòå ğîäèòåëåé è äåòåé êàêîãî-ëèáî æèòåëÿ îñòğîâà. Óêàçàòü ñâåäåíèÿ îá ıòèõ ëşäÿõ:
-SELECT t1.sn AS 'Ôàìèëèÿ', t1.name AS 'Èìÿ', t2.sn AS 'Ôàìèëèÿ îòöà', t2.name AS 'Èìÿ îòöà', t3.sn AS 'Ôàìèëèÿ ìàòåğè', t3.name AS 'Èìÿ ìàòåğè', t4.* 
+- ÃÃ¯Ã°Ã¥Ã¤Ã¥Ã«Ã¨Ã²Ã¥ Ã°Ã®Ã¤Ã¨Ã²Ã¥Ã«Ã¥Ã© Ã¨ Ã¤Ã¥Ã²Ã¥Ã© ÃªÃ ÃªÃ®Ã£Ã®-Ã«Ã¨Ã¡Ã® Ã¦Ã¨Ã²Ã¥Ã«Ã¿ Ã®Ã±Ã²Ã°Ã®Ã¢Ã . Ã“ÃªÃ Ã§Ã Ã²Ã¼ Ã±Ã¢Ã¥Ã¤Ã¥Ã­Ã¨Ã¿ Ã®Ã¡ Ã½Ã²Ã¨Ãµ Ã«Ã¾Ã¤Ã¿Ãµ:
+SELECT t1.sn AS 'Ã”Ã Ã¬Ã¨Ã«Ã¨Ã¿', t1.name AS 'ÃˆÃ¬Ã¿', t2.sn AS 'Ã”Ã Ã¬Ã¨Ã«Ã¨Ã¿ Ã®Ã²Ã¶Ã ', t2.name AS 'ÃˆÃ¬Ã¿ Ã®Ã²Ã¶Ã ', t3.sn AS 'Ã”Ã Ã¬Ã¨Ã«Ã¨Ã¿ Ã¬Ã Ã²Ã¥Ã°Ã¨', t3.name AS 'ÃˆÃ¬Ã¿ Ã¬Ã Ã²Ã¥Ã°Ã¨', t4.* 
 FROM (SELECT people.second_name AS sn, people.name AS name, people.id AS id, people.Otec AS otec, people.Mat AS mat 
 	FROM people WHERE people.id = 6) t1 
 LEFT JOIN (SELECT people.second_name AS sn, people.name AS name, people.id AS id FROM people) t2 ON t2.id = t1.otec 
 LEFT JOIN (SELECT people.second_name AS sn, people.name AS name, people.id AS id FROM people) t3 ON t3.id = t1.mat
-JOIN (SELECT name AS 'Äåòè' FROM people WHERE otec = 6 OR mat = 6) AS t4
+JOIN (SELECT name AS 'Ã„Ã¥Ã²Ã¨' FROM people WHERE otec = 6 OR mat = 6) AS t4
 
 
-- Ïîëó÷èòå ñïèñîê âñåõ óëèö, ğàñïîëîæåííûõ íà îñòğîâå: 
+- ÃÃ®Ã«Ã³Ã·Ã¨Ã²Ã¥ Ã±Ã¯Ã¨Ã±Ã®Ãª Ã¢Ã±Ã¥Ãµ Ã³Ã«Ã¨Ã¶, Ã°Ã Ã±Ã¯Ã®Ã«Ã®Ã¦Ã¥Ã­Ã­Ã»Ãµ Ã­Ã  Ã®Ã±Ã²Ã°Ã®Ã¢Ã¥: 
 SELECT DISTINCT name FROM streets
 
-- Îïğåäåëèòå, ñêîëüêî äîìîâ íàõîäèòñÿ íà êàæäîé óëèöå îñòğîâà:
-SELECT streets.name AS 'Óëèöà', Count(*) AS 'Äîìîâ' FROM `addresses`, `streets`
+- ÃÃ¯Ã°Ã¥Ã¤Ã¥Ã«Ã¨Ã²Ã¥, Ã±ÃªÃ®Ã«Ã¼ÃªÃ® Ã¤Ã®Ã¬Ã®Ã¢ Ã­Ã ÃµÃ®Ã¤Ã¨Ã²Ã±Ã¿ Ã­Ã  ÃªÃ Ã¦Ã¤Ã®Ã© Ã³Ã«Ã¨Ã¶Ã¥ Ã®Ã±Ã²Ã°Ã®Ã¢Ã :
+SELECT streets.name AS 'Ã“Ã«Ã¨Ã¶Ã ', Count(*) AS 'Ã„Ã®Ã¬Ã®Ã¢' FROM `addresses`, `streets`
 WHERE addresses.street = streets.id
 GROUP BY 1
-ORDER BY 'Óëèöà'
+ORDER BY 'Ã“Ã«Ã¨Ã¶Ã '
 
--  Îïğåäåëèòå íàçâàíèå óëèöû, íà êîòîğîé ïğîæèâàåò áîëüøå âñåãî îñòğîâèòÿí:
-SELECT streets.name AS 'Óëèöà', COUNT(*) AS 'Æèòåëåé'
+-  ÃÃ¯Ã°Ã¥Ã¤Ã¥Ã«Ã¨Ã²Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ Ã³Ã«Ã¨Ã¶Ã», Ã­Ã  ÃªÃ®Ã²Ã®Ã°Ã®Ã© Ã¯Ã°Ã®Ã¦Ã¨Ã¢Ã Ã¥Ã² Ã¡Ã®Ã«Ã¼Ã¸Ã¥ Ã¢Ã±Ã¥Ã£Ã® Ã®Ã±Ã²Ã°Ã®Ã¢Ã¨Ã²Ã¿Ã­:
+SELECT streets.name AS 'Ã“Ã«Ã¨Ã¶Ã ', COUNT(*) AS 'Ã†Ã¨Ã²Ã¥Ã«Ã¥Ã©'
 FROM streets, house_residents, house, addresses
 WHERE house_residents.dom = house.id AND addresses.dom = house.id AND Addresses.street = streets.id
 GROUP BY 1
 
--  Îïğåäåëèòå êîëè÷åñòâî êîíòğàêòîâ, çàêëş÷åííûõ íà êàæäûé âèä äåÿòåëüíîñòè â
-êàêîé-ëèáî ïåğèîä âğåìåíè:
-SELECT activities.name AS 'Äåÿòåëüíîñòü', COUNT(*) AS 'Êîíòğàêòîâ' 
+-  ÃÃ¯Ã°Ã¥Ã¤Ã¥Ã«Ã¨Ã²Ã¥ ÃªÃ®Ã«Ã¨Ã·Ã¥Ã±Ã²Ã¢Ã® ÃªÃ®Ã­Ã²Ã°Ã ÃªÃ²Ã®Ã¢, Ã§Ã ÃªÃ«Ã¾Ã·Ã¥Ã­Ã­Ã»Ãµ Ã­Ã  ÃªÃ Ã¦Ã¤Ã»Ã© Ã¢Ã¨Ã¤ Ã¤Ã¥Ã¿Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¨ Ã¢
+ÃªÃ ÃªÃ®Ã©-Ã«Ã¨Ã¡Ã® Ã¯Ã¥Ã°Ã¨Ã®Ã¤ Ã¢Ã°Ã¥Ã¬Ã¥Ã­Ã¨:
+SELECT activities.name AS 'Ã„Ã¥Ã¿Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼', COUNT(*) AS 'ÃŠÃ®Ã­Ã²Ã°Ã ÃªÃ²Ã®Ã¢' 
 FROM `contract`, `entrepreneurs`, `activities`
 WHERE contract.Predprinimatel = entrepreneurs.id 
 	AND entrepreneurs.Deyatelnost = activities.id 
 		AND (contract.begin_date > '1000-01-02' and contract.end_date < '3000-01-02' )
 GROUP BY 1
 
-- Ïîëó÷èòå ñïèñîê ÷ëåíîâ êîîïåğàòèâîâ, êîòîğûå çàíèìàşòñÿ ğûáíîé ëîâëå:
-SELECT name AS 'Ğûáíîé ëîâëåé çàíèìàşòñÿ êîîïåğàòèâû:' FROM cooperative 
+- ÃÃ®Ã«Ã³Ã·Ã¨Ã²Ã¥ Ã±Ã¯Ã¨Ã±Ã®Ãª Ã·Ã«Ã¥Ã­Ã®Ã¢ ÃªÃ®Ã®Ã¯Ã¥Ã°Ã Ã²Ã¨Ã¢Ã®Ã¢, ÃªÃ®Ã²Ã®Ã°Ã»Ã¥ Ã§Ã Ã­Ã¨Ã¬Ã Ã¾Ã²Ã±Ã¿ Ã°Ã»Ã¡Ã­Ã®Ã© Ã«Ã®Ã¢Ã«Ã¥:
+SELECT name AS 'ÃÃ»Ã¡Ã­Ã®Ã© Ã«Ã®Ã¢Ã«Ã¥Ã© Ã§Ã Ã­Ã¨Ã¬Ã Ã¾Ã²Ã±Ã¿ ÃªÃ®Ã®Ã¯Ã¥Ã°Ã Ã²Ã¨Ã¢Ã»:' FROM cooperative 
 WHERE id = (SELECT Kooperativ FROM coop_activities WHERE Deyatelnost = 1) 
