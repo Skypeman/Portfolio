@@ -15,7 +15,6 @@ LEFT JOIN (SELECT people.second_name AS sn, people.name AS name, people.id AS id
 LEFT JOIN (SELECT people.second_name AS sn, people.name AS name, people.id AS id FROM people) t3 ON t3.id = t1.mat
 JOIN (SELECT name AS 'Дети' FROM people WHERE otec = 6 OR mat = 6) AS t4
 
-
 - Получите список всех улиц, расположенных на острове: 
 SELECT DISTINCT name FROM streets
 
